@@ -13,5 +13,23 @@ class MutationType < Types::BaseObject
     )
   end
 
+  # Add a field to the MutationType that adds a new person
+  field :add_person, Types::PersonType, null: false do
+    argument :first_name, String, required: true
+    argument :last_name, String, required: true
+    argument :email, String, required: true
+    argument :job_title, String, required: true
+    argument :avatar, String, required: true
+  end
+
+  def add_person(first_name:, last_name:, email:, job_title:, avatar:)
+    Person.create!(
+      first_name: first_name,
+      last_name: last_name,
+      email: email,
+      job_title: job_title,
+      avatar: avatar
+    )
+  end
 end
 end
