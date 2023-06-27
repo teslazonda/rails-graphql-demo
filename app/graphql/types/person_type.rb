@@ -21,15 +21,5 @@ module Types
       [object.first_name, object.last_name].compact.join(" ")
     end
 
-     # Ask for a person by ID
-    field :person,
-    Types::PersonType,
-    null: true,
-    description: "Find a person by ID" do
-      argument :id, ID, required: true
-    end
-    def person(id:)
-      Person.find(id)
-    end
   end
 end
