@@ -1,13 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+Welcome to the rails-graphql API docs.
+ Here's what's covered:
 
 This API was created with the help of [this post](https://groff.dev/blog/how-to-make-a-graphql-api-with-ruby-rails) by [Matthew Groff](https://groff.dev/about)
 
 * Ruby version
+*   Ruby 3.2.2
 
 * System dependencies
 
