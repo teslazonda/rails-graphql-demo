@@ -1,9 +1,10 @@
 # README
 
-Welcome to the rails-graphql API docs.
- Here's what's covered:
+Welcome to the rails-graphql API docs. This API was created with the help of [this post](https://groff.dev/blog/how-to-make-a-graphql-api-with-ruby-rails) by [Matthew Groff](https://groff.dev/about)
 
-This API was created with the help of [this post](https://groff.dev/blog/how-to-make-a-graphql-api-with-ruby-rails) by [Matthew Groff](https://groff.dev/about)
+Here's what's covered:
+
+
 
 * Ruby version
 *   Ruby 3.2.2
