@@ -27,8 +27,8 @@ curl 'http://localhost:3000/graphql' \
   --data '{ "query": "{ comments { id comment person { firstName lastName email createdAt } } }" }'
 ```
 This query returns a list of people. The sample response looks like this:
-```bash
-{"data":{"comments":[{"id":"1ae885ef-a366-4513-a355-22fa1cd639cb","comment":"This is a comment from Matt Groff","person":{"firstName":"Matt","lastName":"Groff","email":"matt@umbrage.com","createdAt":"2023-06-27T11:20:20Z"}},{"id":"cc21ef70-e0ea-48f7-915b-3b2b7e51617a","comment":"This is another comment from Matt Groff","person":{"firstName":"Matt","lastName":"Groff","email":"matt@umbrage.com","createdAt":"2023-06-27T11:20:20Z"}},{"id":"4f96ff27-ab97-4a76-be44-66438ac84d09","comment":"This is a new comment","person":{"firstName":"Matt","lastName":"Groff","email":"matt@umbrage.com","createdAt":"2023-06-27T11:20:20Z"}}]}}%  
+```json
+{"data":{"comments":[{"id":"1ae885ef-a366-4513-a355-22fa1cd639cb","comment":"This is a comment from Matt Groff","person":{"firstName":"Matt","lastName":"Groff","email":"matt@umbrage.com","createdAt":"2023-06-27T11:20:20Z"}},{"id":"cc21ef70-e0ea-48f7-915b-3b2b7e51617a","comment":"This is another comment from Matt Groff","person":{"firstName":"Matt","lastName":"Groff","email":"matt@umbrage.com","createdAt":"2023-06-27T11:20:20Z"}},{"id":"4f96ff27-ab97-4a76-be44-66438ac84d09","comment":"This is a new comment","person":{"firstName":"Matt","lastName":"Groff","email":"matt@umbrage.com","createdAt":"2023-06-27T11:20:20Z"}}]}}  
 ```
 
 * Ruby version
