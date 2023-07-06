@@ -1,13 +1,38 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to the rails-graphql API docs. This API was created with the help of [this post](https://groff.dev/blog/how-to-make-a-graphql-api-with-ruby-rails) by [Matthew Groff](https://groff.dev/about)
 
-Things you may want to cover:
+Here's what's covered:
+* Sample response.
+* Sample requests  
+  `query {
+  comments {
+    id
+    comment
+    person {
+      firstName
+      lastName
+      email
+      createdAt
+    }
+  }
+}
+`
 
-This API was created with the help of [this post](https://groff.dev/blog/how-to-make-a-graphql-api-with-ruby-rails) by [Matthew Groff](https://groff.dev/about)
+You can test the API with `curl` using the following command structure:
+```bash
+curl 'http://localhost:3000/graphql' \ 
+  -X POST \
+  -H 'content-type: application/json' \
+  --data '{ "query": "{ comments { id comment person { firstName lastName email createdAt } } }" }'
+```
+This query returns a list of people. The sample response looks like this:
+```bash
+{"data":{"comments":[{"id":"1ae885ef-a366-4513-a355-22fa1cd639cb","comment":"This is a comment from Matt Groff","person":{"firstName":"Matt","lastName":"Groff","email":"matt@umbrage.com","createdAt":"2023-06-27T11:20:20Z"}},{"id":"cc21ef70-e0ea-48f7-915b-3b2b7e51617a","comment":"This is another comment from Matt Groff","person":{"firstName":"Matt","lastName":"Groff","email":"matt@umbrage.com","createdAt":"2023-06-27T11:20:20Z"}},{"id":"4f96ff27-ab97-4a76-be44-66438ac84d09","comment":"This is a new comment","person":{"firstName":"Matt","lastName":"Groff","email":"matt@umbrage.com","createdAt":"2023-06-27T11:20:20Z"}}]}}%  
+```
 
 * Ruby version
+*   Ruby 3.2.2
 
 * System dependencies
 
