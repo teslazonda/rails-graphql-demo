@@ -1,20 +1,20 @@
-matt = Person.create!(
-  first_name: "Matt",
-  last_name: "Groff",
-  email: "matt@umbrage.com",
-  job_title: "Director of Engineering",
+quill = Person.create!(
+  first_name: "Quill",
+  last_name: "Cronwall",
+  email: "quill@example.com",
+  job_title: "Technical Writer",
   avatar: "https://www.gravatar.com/avatar/b21bbd4c0b7f75a0fbb469c238639eb7"
 )
 
 Comment.create!(
   [
     {
-      person: matt,
-      comment: "This is a comment from Matt Groff",
+      person: quill,
+    comment: "This is a comment from Quill Cronwall",
     },
     {
-      person: matt,
-      comment: "This is another comment from Matt Groff",
+      person: quill,
+      comment: "This is another comment from Quill Cronwall",
     }
   ]
 )
