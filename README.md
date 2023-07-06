@@ -4,6 +4,20 @@ Welcome to the rails-graphql API docs. This API was created with the help of [th
 
 Here's what's covered:
 * Sample response.
+* Sample requests
+  `query {
+  comments {
+    id
+    comment
+    person {
+      firstName
+      lastName
+      email
+      createdAt
+    }
+  }
+}
+`
 
 
 * Ruby version
