@@ -43,6 +43,8 @@ The schema includes the following data types:
 ## Queries
 
 The following queries are available to retrieve data from the GraphQL API:
+
+### Fetch all comments from all persons
 ```graphql
 query {
   comments {
@@ -53,6 +55,23 @@ query {
       lastName
       email
       createdAt
+    }
+  }
+}
+```
+
+### Fetch a person by ID
+Retrieves a person by their ID
+```graphql
+query {
+  person(id: "YOUR-PERSON-ID-HERE") {
+    id
+    firstName
+    lastName
+    email
+    comments {
+      id
+      comment
     }
   }
 }
