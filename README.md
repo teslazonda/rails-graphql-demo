@@ -2,12 +2,20 @@
 
 Welcome to the rails-graphql API docs. This API was created with the help of [this post](https://groff.dev/blog/how-to-make-a-graphql-api-with-ruby-rails) by [Matthew Groff](https://groff.dev/about)
 
-Here's what's covered:
-* Models
-* GraphQL schema
-* Sample responses
-* Sample requests
+### Contents:
+* [Installation](#installation)
+* [Models](#models)
+* [GraphQL endpoint](#graphql-endpoint)
+* [GraphQL schema](#graphql-schema)
+* [Queries](#queries)
+* [Responses]()
 
+
+## Installation
+Prerequisites
+* Ruby 3.2 or higher
+* Posgresql installed
+* Rails installed
 
 ## Models
 The application includes two models: `Person` and `Comment`. The `Person` model has a one-to-many relationship with the `Comment` model, where a `Person` can have multiple comments.
@@ -44,7 +52,7 @@ The schema includes the following data types:
 
 The following queries are available to retrieve data from the GraphQL API:
 
-### Fetch all comments from all persons
+### Fetch all Comments from all Persons
 ```graphql
 query {
   comments {
@@ -60,7 +68,7 @@ query {
 }
 ```
 
-### Fetch a person by ID
+### Fetch a Person by ID
 Retrieves a person by their ID
 ```graphql
 query {
