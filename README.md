@@ -10,7 +10,7 @@ Here's what's covered:
 
 
 ## Models
-The application includes two models: Person and Comment. The Person model has a one-to-many relationship with the Comment model, where a person can have multiple comments.
+The application includes two models: `Person` and `Comment`. The `Person` model has a one-to-many relationship with the `Comment` model, where a `Person` can have multiple comments.
 
 ## GraphQL Endpoint
 ```
@@ -21,15 +21,42 @@ The GraphQL schema defines how data is organized within API responses.
 The schema includes the following data types:
 
 ### Person
-A single person
+* A single person
 
-#### Fields
+#### Fields:
 * `id` (ID!): The unique identifier of the person.
 * `first_name` (String!): The first name of the person.
 * `last_name` (String!): The last name of the person.
 * `email` (String!): The email of the person.
 * `job_title` (String!): The job_title of the person.
 * `avatar` (String!): The avatar of the person.
+
+### Comment
+* A single comment
+
+#### Fields:
+* `id` (ID!): The unique identifier of the comment.
+* `comment` (String!): The text data of the comment.
+* `person` (PersonType!): The Person object the comment belongs to.
+
+
+## Queries
+
+The following queries are available to retrieve data from the GraphQL API:
+```graphql
+query {
+  comments {
+    id
+    comment
+    person {
+      firstName
+      lastName
+      email
+      createdAt
+    }
+  }
+}
+```
 
 You can test the API with `curl` using the following command structure:
 ```bash
@@ -43,19 +70,6 @@ This query returns a list of comments, and the person that created each comment.
 {"data":{"comments":[{"id":"1ae885ef-a366-4513-a355-22fa1cd639cb","comment":"This is a comment from Quill Cronwall","person":{"firstName":"Quill","lastName":"Cronwall","email":"quill@example.com","createdAt":"2023-06-27T11:20:20Z"}},{"id":"cc21ef70-e0ea-48f7-915b-3b2b7e51617a","comment":"This is another comment from Quill Cronwall","person":{"firstName":"Quill","lastName":"Cronwall","email":"quill@example.com","createdAt":"2023-06-27T11:20:20Z"}},{"id":"4f96ff27-ab97-4a76-be44-66438ac84d09","comment":"This is a new comment","person":{"firstName":"Quill","lastName":"Cronwall","email":"quill@example.com","createdAt":"2023-06-27T11:20:20Z"}}]}}
 ```
 
-  `query {
-  comments {
-    id
-    comment
-    person {
-      firstName
-      lastName
-      email
-      createdAt
-    }
-  }
-}
-`
 * Ruby version
 *   Ruby 3.2.2
 
