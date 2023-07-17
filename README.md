@@ -109,7 +109,7 @@ Mutation that attaches a new Comment to an existing Person object
 mutation {
   addComment(
     comment: "This is a new comment"
-    personId: "3c4ceab0-1b13-4fe1-a4bb-ea4ec8b042f8"
+    personId: "YOUR-PERSON-ID-HERE"
   ) {
     id
     comment
@@ -136,9 +136,9 @@ mutation {
   addPerson(
     firstName: "Jane"
     lastName: "Doe"
-    email: "jane@umbrage.com"
+    email: "jane@example.com"
     jobTitle: "Senior Design Crafter"
-    avatar: "https://www.gravatar.com/avatar/df56f48c7a057d2b45915c96011aaf42"
+    avatar: "YOUR-AVATAR-URL"
   ) {
     id
     firstName
