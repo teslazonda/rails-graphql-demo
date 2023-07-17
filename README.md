@@ -84,6 +84,71 @@ query {
   }
 }
 ```
+### Fetch all Person objects
+Retrieves a list of all people in the database
+
+```graphql
+query {
+  people {
+    id
+    firstName
+    lastName
+    email
+    comments {
+      id
+      comment
+    }
+  }
+}
+```
+
+### Add a Comment to a Person object
+Mutation that attaches a new Comment to an existing Person object
+
+```graphql
+mutation {
+  addComment(
+    comment: "This is a new comment"
+    personId: "3c4ceab0-1b13-4fe1-a4bb-ea4ec8b042f8"
+  ) {
+    id
+    comment
+    person {
+      id
+      firstName
+      lastName
+      email
+      comments {
+        id
+        comment
+        createdAt
+      }
+    }
+  }
+}
+```
+
+### Add a new Person
+Mutation that creates a new Person object
+
+```graphql
+mutation {
+  addPerson(
+    firstName: "Jane"
+    lastName: "Doe"
+    email: "jane@umbrage.com"
+    jobTitle: "Senior Design Crafter"
+    avatar: "https://www.gravatar.com/avatar/df56f48c7a057d2b45915c96011aaf42"
+  ) {
+    id
+    firstName
+    lastName
+    email
+    jobTitle
+    avatar
+  }
+}
+```
 
 You can test the API with `curl` using the following command structure:
 ```bash
