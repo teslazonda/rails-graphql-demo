@@ -17,6 +17,8 @@ Prerequisites
 * Posgresql installed
 * Rails installed
 
+Clone the repository into the desired directory, then run `bundle install` inside. Setup the database with `rails db:create` `rails db:migrate` and `rails db:seed`.
+
 ## Models
 The application includes two models: `Person` and `Comment`. The `Person` model has a one-to-many relationship with the `Comment` model, where a `Person` can have multiple comments.
 
