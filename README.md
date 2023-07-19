@@ -8,7 +8,7 @@ Welcome to the rails-graphql API docs. This API was created with the help of [th
 * [GraphQL endpoint](#graphql-endpoint)
 * [GraphQL schema](#graphql-schema)
 * [Queries](#queries)
-* [Responses]()
+* [Responses](#responses)
 
 
 ## Installation
