@@ -24,7 +24,7 @@ The application includes two models: `Person` and `Comment`. The `Person` model 
 
 ## GraphQL Endpoint
 ```
-POST /graphql
+POST /graphiql
 ```
 ## GraphQL Schema
 The GraphQL schema defines how data is organized within API responses.
@@ -96,10 +96,6 @@ query {
     firstName
     lastName
     email
-    comments {
-      id
-      comment
-    }
   }
 }
 ```
@@ -152,33 +148,134 @@ mutation {
 }
 ```
 
-You can test the API with `curl` using the following command structure:
+You can test the API with the `curl` command. Here's an example that fetches all `Comment` objects and the `Person`they belong to:
 ```bash
 curl 'http://localhost:3000/graphql' \
   -X POST \
   -H 'content-type: application/json' \
   --data '{ "query": "{ comments { id comment person { firstName lastName email createdAt } } }" }'
 ```
-This query returns a list of comments, and the person that created each comment. The sample response looks like this:
-```json
-{"data":{"comments":[{"id":"1ae885ef-a366-4513-a355-22fa1cd639cb","comment":"This is a comment from Quill Cronwall","person":{"firstName":"Quill","lastName":"Cronwall","email":"quill@example.com","createdAt":"2023-06-27T11:20:20Z"}},{"id":"cc21ef70-e0ea-48f7-915b-3b2b7e51617a","comment":"This is another comment from Quill Cronwall","person":{"firstName":"Quill","lastName":"Cronwall","email":"quill@example.com","createdAt":"2023-06-27T11:20:20Z"}},{"id":"4f96ff27-ab97-4a76-be44-66438ac84d09","comment":"This is a new comment","person":{"firstName":"Quill","lastName":"Cronwall","email":"quill@example.com","createdAt":"2023-06-27T11:20:20Z"}}]}}
+
+## Responses
+
+Here are sample successful responses for each query:
+
+### Fetch all Comments from all Persons
+```graphql
+{
+  "data": {
+    "comments": [
+      {
+        "id": "f5ebd6fc-356f-482c-8ed8-45bf49bdf9c7",
+        "comment": "This is a comment from Quill Cronwall",
+        "person": {
+          "firstName": "Quill",
+          "lastName": "Cronwall",
+          "email": "quill@example.com",
+          "createdAt": "2023-07-06T06:25:26Z"
+        }
+      },
+      {
+        "id": "379cd2e5-8e11-43e0-9292-eb782378b1d5",
+        "comment": "This is another comment from Quill Cronwall",
+        "person": {
+          "firstName": "Quill",
+          "lastName": "Cronwall",
+          "email": "quill@example.com",
+          "createdAt": "2023-07-06T06:25:26Z"
+        }
+      }
+    ]
+  }
+}
+```
+### Fetch a Person by ID
+
+```graphql
+{
+  "data": {
+    "person": {
+      "id": "2716107f-7d72-45cf-89f1-1dd9e285d66d",
+      "firstName": "Quill",
+      "lastName": "Cronwall",
+      "email": "quill@example.com",
+      "comments": [
+        {
+          "id": "f5ebd6fc-356f-482c-8ed8-45bf49bdf9c7",
+          "comment": "This is a comment from Quill Cronwall"
+        },
+        {
+          "id": "379cd2e5-8e11-43e0-9292-eb782378b1d5",
+          "comment": "This is another comment from Quill Cronwall"
+        }
+      ]
+    }
+  }
+}
+```
+### Fetch all Person objects
+
+```graphql
+{
+  "data": {
+    "people": [
+      {
+        "id": "2716107f-7d72-45cf-89f1-1dd9e285d66d",
+        "firstName": "Quill",
+        "lastName": "Cronwall",
+        "email": "quill@example.com"
+      }
+    ]
+  }
+}
 ```
 
-* Ruby version
-*   Ruby 3.2.2
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Add a Comment to a Person object
+```graphql
+{
+  "data": {
+    "addComment": {
+      "id": "7d422fd9-77b9-4fe5-9ccd-f244bb1c1d16",
+      "comment": "This is a new comment",
+      "person": {
+        "id": "2716107f-7d72-45cf-89f1-1dd9e285d66d",
+        "firstName": "Quill",
+        "lastName": "Cronwall",
+        "email": "quill@example.com",
+        "comments": [
+          {
+            "id": "f5ebd6fc-356f-482c-8ed8-45bf49bdf9c7",
+            "comment": "This is a comment from Quill Cronwall",
+            "createdAt": "2023-07-06T06:25:26Z"
+          },
+          {
+            "id": "379cd2e5-8e11-43e0-9292-eb782378b1d5",
+            "comment": "This is another comment from Quill Cronwall",
+            "createdAt": "2023-07-06T06:25:26Z"
+          },
+          {
+            "id": "7d422fd9-77b9-4fe5-9ccd-f244bb1c1d16",
+            "comment": "This is a new comment",
+            "createdAt": "2023-07-19T10:49:40Z"
+          }
+        ]
+      }
+    }
+  }
+}
+```
+### Add a new Person
+```graphql
+{
+  "data": {
+    "addPerson": {
+      "id": "b2bba877-a8a9-4f4a-bedd-00ef4846f959",
+      "firstName": "First",
+      "lastName": "Last",
+      "email": "jane@example.com",
+      "jobTitle": "Senior Basket Weaver",
+      "avatar": "https://cdn.iconscout.com/icon/free/png-512/avatar-367-456319.png"
+    }
+  }
+}
+```
