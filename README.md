@@ -265,7 +265,7 @@ Here are sample successful responses for each query:
 }
 ```
 ### Add a new Person
-```graphql
+```json
 {
   "data": {
     "addPerson": {
