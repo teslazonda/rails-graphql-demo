@@ -161,7 +161,7 @@ curl 'http://localhost:3000/graphql' \
 Here are sample successful responses for each query:
 
 ### Fetch all Comments from all Persons
-```graphql
+```json
 {
   "data": {
     "comments": [
@@ -191,7 +191,7 @@ Here are sample successful responses for each query:
 ```
 ### Fetch a Person by ID
 
-```graphql
+```json
 {
   "data": {
     "person": {
@@ -215,7 +215,7 @@ Here are sample successful responses for each query:
 ```
 ### Fetch all Person objects
 
-```graphql
+```json
 {
   "data": {
     "people": [
@@ -231,7 +231,7 @@ Here are sample successful responses for each query:
 ```
 
 ### Add a Comment to a Person object
-```graphql
+```json
 {
   "data": {
     "addComment": {
